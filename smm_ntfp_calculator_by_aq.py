@@ -15,10 +15,11 @@ if st.button("Use Preset for Gender"):
     st.session_state.update(presets[gender])
 
 # Input fields
-height = st.number_input("Enter height (cm):", min_value=100.0, max_value=220.0, value=st.session_state.get("height", 165.0))
-thigh_circ = st.number_input("Enter thigh circumference (cm):", min_value=20.0, max_value=80.0, value=st.session_state.get("thigh", 48.0))
-forearm_circ = st.number_input("Enter forearm circumference (cm):", min_value=15.0, max_value=50.0, value=st.session_state.get("forearm", 28.0))
-calf_circ = st.number_input("Enter calf circumference (cm):", min_value=20.0, max_value=60.0, value=st.session_state.get("calf", 36.0))
+height = st.number_input("Enter height (cm):", min_value=100.0, max_value=220.0, value=float(st.session_state.get("height", 165.0)))
+thigh_circ = st.number_input("Enter thigh circumference (cm):", min_value=20.0, max_value=80.0, value=float(st.session_state.get("thigh", 48.0)))
+forearm_circ = st.number_input("Enter forearm circumference (cm):", min_value=15.0, max_value=50.0, value=float(st.session_state.get("forearm", 28.0)))
+calf_circ = st.number_input("Enter calf circumference (cm):", min_value=20.0, max_value=60.0, value=float(st.session_state.get("calf", 36.0)))
+
 
 # Calculate SMM
 smm_g = height * (0.0553 * (thigh_circ ** 2) + 0.0987 * (forearm_circ ** 2) + 0.0331 * (calf_circ ** 2)) - 2445
